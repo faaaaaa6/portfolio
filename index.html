@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MUHAMMED FAHANAS</title>
+
+  <!-- Tailwind CSS — no install needed, loads from internet -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts — JetBrains Mono for headings, Geist for body -->
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ─── Base ─────────────────────────────────── */
+    * { scroll-behavior: smooth; }
+
+    body {
+      background-color: #0c0c0c;
+      color: #e2e2e2;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* Headings use the mono font — gives that backend/code feel */
+    h1, h2, h3, .mono { font-family: 'JetBrains Mono', monospace; }
+
+    /* ─── Accent color ──────────────────────────
+       Change this ONE variable to retheme the whole page */
+    :root { --accent: #22c55e; }   /* green-500 */
+
+    .accent       { color: var(--accent); }
+    .accent-border{ border-color: var(--accent); }
+    .accent-bg    { background-color: var(--accent); }
+
+    /* ─── Navbar active link underline ──────── */
+    .nav-link {
+      position: relative;
+      color: #a1a1aa;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.25s;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* ─── Section divider ───────────────────── */
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    /* ─── Cards ─────────────────────────────── */
+    .card {
+      background: #161616;
+      border: 1px solid #242424;
+      border-radius: 8px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Skill tag ──────────────────────────── */
+    .skill-tag {
+      background: #1a1a1a;
+      border: 1px solid #2e2e2e;
+      color: #d4d4d4;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── Project tag ────────────────────────── */
+    .proj-tag {
+      background: #0d2b18;
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── Button styles ─────────────────────── */
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      border: 1px solid #333;
+      color: #e2e2e2;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      transition: border-color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--accent); }
+  </style>
+</head>
+
+<body class="antialiased">
+
+  <!-- ════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 border-b border-[#1f1f1f] bg-[#0c0c0c]/90 backdrop-blur-sm">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+
+      <!-- Logo / Name -->
+      <a href="#hero" class="mono text-sm font-semibold text-white">
+        muhammed fahanas<span class="accent"></span>
+      </a>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a href="#about"    class="nav-link">about</a>
+        <a href="#skills"   class="nav-link">skills</a>
+        <a href="#projects" class="nav-link">projects</a>
+        <a href="#contact"  class="nav-link">contact</a>
+      </div>
+
+      <!-- CTA -->
+      <a href="mailto:you@email.com" class="btn-primary text-xs py-2 px-4">
+        hire me
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section id="hero" class="min-h-screen flex items-center pt-20">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <!-- Status badge -->
+      <div class="inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-[#2a2a2a] bg-[#161616]">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span class="text-xs text-zinc-400 mono">available for opportunities</span>
+      </div>
+
+      <!-- Name -->
+      <h1 class="text-5xl md:text-7xl font-bold text-white leading-none mb-4">
+        <br/><span class="accent">MUHAMMED FAHANAS M</span>
+      </h1>
+
+      <!-- Title -->
+      <p class="text-zinc-400 text-lg mb-3">
+        Python & Django Backend Developer
+      </p>
+
+      <!-- One-liner -->
+      <p class="text-zinc-500 text-base max-w-xl mb-10 leading-relaxed">
+        Building reliable, well-structured backends — focused on
+        clean APIs, solid architecture, and getting the fundamentals right.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-wrap gap-4">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <a href="#contact"  class="btn-secondary">Get in Touch</a>
+      </div>
+
+      <!-- Quick stats row -->
+      <div class="flex flex-wrap gap-10 mt-16 pt-10 border-t border-[#1f1f1f]">
+        <div>
+          <p class="mono text-2xl font-bold text-white">6+</p>
+          <p class="text-xs text-zinc-500 mt-1">months focused on backend</p>
+        </div>
+        <div>
+          <p class="mono text-2xl font-bold text-white">3+</p>
+          <p class="text-xs text-zinc-500 mt-1">django projects built</p>
+        </div>
+        <div>
+          <p class="mono text-2xl font-bold text-white">REST</p>
+          <p class="text-xs text-zinc-500 mt-1">APIs designed & shipped</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section id="about" class="py-28">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <p class="section-label mb-4">about</p>
+
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-6 leading-snug">
+            Backend first,<br/>always.
+          </h2>
+          <p class="text-zinc-400 leading-relaxed mb-4">
+            I'm a Python developer dedicating myself to becoming strong
+            at backend engineering. My main focus is Django — building
+            clean REST APIs, working with databases, and understanding
+            how things work under the hood.
+          </p>
+          <p class="text-zinc-400 leading-relaxed mb-8">
+            I believe in building a solid core before moving fast.
+            Right now I'm in that phase — learning deeply, building
+            consistently, and getting better every day.
+          </p>
+
+          <!-- Social links -->
+          <div class="flex gap-4">
+            <a href="https://github.com/yourhandle" target="_blank"
+               class="btn-secondary py-2 px-4 text-xs">GitHub ↗</a>
+            <a href="https://linkedin.com/in/yourhandle" target="_blank"
+               class="btn-secondary py-2 px-4 text-xs">LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <!-- Info card -->
+        <div class="card p-6 space-y-4">
+          <div class="flex justify-between items-center py-3 border-b border-[#242424]">
+            <span class="text-zinc-500 text-sm">location</span>
+            <span class="text-zinc-300 text-sm mono">Kerala, India</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-[#242424]">
+            <span class="text-zinc-500 text-sm">primary language</span>
+            <span class="accent text-sm mono">Python</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-[#242424]">
+            <span class="text-zinc-500 text-sm">main framework</span>
+            <span class="text-zinc-300 text-sm mono">Django / DRF</span>
+          </div>
+          <div class="flex justify-between items-center py-3">
+            <span class="text-zinc-500 text-sm">focus area</span>
+            <span class="text-zinc-300 text-sm mono">Backend Engineering</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       SKILLS
+  ════════════════════════════════════════ -->
+  <section id="skills" class="py-28 border-t border-[#1a1a1a]">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <p class="section-label mb-4">skills</p>
+      <h2 class="text-3xl font-bold text-white mb-12">What I work with</h2>
+
+      <!-- Skill groups -->
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Languages -->
+        <div class="card p-6">
+          <p class="text-zinc-500 text-xs mono mb-4 uppercase tracking-widest">Languages</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="card p-6">
+          <p class="text-zinc-500 text-xs mono mb-4 uppercase tracking-widest">Frameworks</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Django</span>
+            <span class="skill-tag">Django REST Framework</span>
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div class="card p-6">
+          <p class="text-zinc-500 text-xs mono mb-4 uppercase tracking-widest">Databases</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQLite</span>
+          </div>
+        </div>
+
+        <!-- Tools & Concepts -->
+        <div class="card p-6">
+          <p class="text-zinc-500 text-xs mono mb-4 uppercase tracking-widest">Tools & Concepts</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Postman</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">ORM</span>
+            <span class="skill-tag">JWT Auth</span>
+            <span class="skill-tag">Linux / CLI</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       PROJECTS
+  ════════════════════════════════════════ -->
+  <section id="projects" class="py-28 border-t border-[#1a1a1a]">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <p class="section-label mb-4">projects</p>
+      <div class="flex items-end justify-between mb-12">
+        <h2 class="text-3xl font-bold text-white">Things I've built</h2>
+        <a href="https://github.com/yourhandle" class="text-sm text-zinc-500 hover:text-white transition-colors mono">
+          all repos ↗
+        </a>
+      </div>
+
+      <!-- Project cards grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- ── Project Card Template ──
+             Copy this block and fill in your details.
+             Remove the "coming soon" line when project is ready. -->
+
+        <div class="card p-6 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <span class="text-2xl">🔐</span>
+            <!-- COMING SOON badge — remove when project is ready -->
+            <span class="text-[10px] mono text-zinc-600 border border-[#2a2a2a] px-2 py-0.5 rounded">coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Auth API</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">
+              A JWT-based authentication system built with DRF — register, login, token refresh, logout.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="proj-tag">Django</span>
+            <span class="proj-tag">DRF</span>
+            <span class="proj-tag">JWT</span>
+          </div>
+          <div class="flex gap-3 pt-2 border-t border-[#242424]">
+            <a href="#" class="text-xs text-zinc-500 hover:text-white transition-colors mono">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="card p-6 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <span class="text-2xl">📦</span>
+            <span class="text-[10px] mono text-zinc-600 border border-[#2a2a2a] px-2 py-0.5 rounded">coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Inventory REST API</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">
+              Full CRUD REST API for managing inventory — products, categories, stock tracking.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="proj-tag">Django</span>
+            <span class="proj-tag">PostgreSQL</span>
+            <span class="proj-tag">REST</span>
+          </div>
+          <div class="flex gap-3 pt-2 border-t border-[#242424]">
+            <a href="#" class="text-xs text-zinc-500 hover:text-white transition-colors mono">GitHub ↗</a>
+          </div>
+        </div>
+
+        <div class="card p-6 flex flex-col gap-4">
+          <div class="flex items-start justify-between">
+            <span class="text-2xl">🗂️</span>
+            <span class="text-[10px] mono text-zinc-600 border border-[#2a2a2a] px-2 py-0.5 rounded">coming soon</span>
+          </div>
+          <div>
+            <h3 class="text-white font-semibold mb-1">Task Manager API</h3>
+            <p class="text-zinc-500 text-sm leading-relaxed">
+              Backend for a task management app — users, tasks, deadlines, status tracking.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-1.5 mt-auto">
+            <span class="proj-tag">Django</span>
+            <span class="proj-tag">DRF</span>
+            <span class="proj-tag">ORM</span>
+          </div>
+          <div class="flex gap-3 pt-2 border-t border-[#242424]">
+            <a href="#" class="text-xs text-zinc-500 hover:text-white transition-colors mono">GitHub ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+ 
+
+
+  <!-- ════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section id="contact" class="py-28 border-t border-[#1a1a1a]">
+    <div class="max-w-5xl mx-auto px-6">
+
+      <p class="section-label mb-4">contact</p>
+
+      <div class="max-w-xl">
+        <h2 class="text-3xl font-bold text-white mb-4">Let's talk</h2>
+        <p class="text-zinc-400 mb-10 leading-relaxed">
+          Open to internships, freelance backend work, or just talking about
+          Python and Django. Feel free to reach out.
+        </p>
+
+        <div class="space-y-4 mb-10">
+          <a href="mailto:you@email.com"
+             class="flex items-center gap-4 p-4 card hover:border-green-500/30 transition-colors">
+            <span class="mono text-zinc-500 text-sm w-24">email</span>
+            <span class="text-zinc-300">fahanasmuhammad634@email.com</span>
+          </a>
+          <a href="https://github.com/yourhandle" target="_blank"
+             class="flex items-center gap-4 p-4 card hover:border-green-500/30 transition-colors">
+            <span class="mono text-zinc-500 text-sm w-24">github</span>
+            <span class="text-zinc-300">github.com/yourhandle</span>
+          </a>
+          <a href="https://www.linkedin.com/in/muhammed-fahanas" target="_blank"
+             class="flex items-center gap-4 p-4 card hover:border-green-500/30 transition-colors">
+            <span class="mono text-zinc-500 text-sm w-24">linkedin</span>
+            <span class="text-zinc-300">www.linkedin.com/in/muhammed-fahanas</span>
+          </a>
+        </div>
+
+        <a href="mailto:fahanasmuhammad634@email.com" class="btn-primary">Send me a mail →</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="border-t border-[#1a1a1a] py-8">
+    <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="mono text-zinc-600 text-xs">
+        © 2025 fahanas — Built with HTML & Tailwind
+      </p>
+      <div class="flex gap-6">
+        <a href="https://github.com/yourhandle"  class="text-xs text-zinc-600 hover:text-white transition-colors mono">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammed-fahanas" class="text-xs text-zinc-600 hover:text-white transition-colors mono">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
